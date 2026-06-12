@@ -7,8 +7,23 @@ import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 
 export const metadata: Metadata = {
-  title: 'My Notes',
-  description: 'This is my Notes',
+  title: 'NoteHub',
+  description: 'Notes application built with Next.js',
+   openGraph: {
+      title: `NoteHub`,
+      description: 'Notes application built with Next.js',
+      url: 'https://08-zustand-wine-nine.vercel.app',
+      siteName: 'NoteHub',
+      images: [
+        {
+          url: 'https://ac.goit.global/fullstack/react/og-meta.jpg',
+          width: 1200,
+          height: 630,
+          alt: `NoteHub`,
+        },
+      ],
+      type: 'website',
+    },
 };
 export const roboto = Roboto({
   subsets: ['latin'], 

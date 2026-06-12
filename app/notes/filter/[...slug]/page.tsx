@@ -27,15 +27,38 @@ export async function generateMetadata({
 
   const selectedTag = slug[0];
 
+  const title =
+    selectedTag === 'all'
+      ? 'All Notes'
+      : `${selectedTag} Notes`;
+
+  const description =
+    selectedTag === 'all'
+      ? 'List of all notes'
+      : `Notes filtered by ${selectedTag}`;
+
   return {
-    title:
-      selectedTag === 'all'
-        ? 'All Notes'
-        : `${selectedTag} Notes`,
-    description:
-      selectedTag === 'all'
-        ? 'List of all notes'
-        : `Notes filtered by ${selectedTag}`,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url:
+        selectedTag === 'all'
+          ? 'https://notehub.com/notes/filter/all'
+          : `https://notehub.com/notes/filter/${selectedTag}`,
+
+      images: [
+        {
+          url:
+            'https://ac.goit.global/fullstack/react/og-meta.jpg',
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      type: 'website',
+    },
   };
 }
 
