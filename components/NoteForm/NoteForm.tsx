@@ -10,7 +10,7 @@ import css from './NoteForm.module.css';
 import { createNote } from '../../lib/api';
 import type { NoteTag } from '../../types/note';
 
-import { useNoteDraftStore } from '../../lib/noteStore';
+import { useNoteDraftStore } from '../../lib/store/noteStore';
 
 const NoteSchema = Yup.object({
   title: Yup.string()
